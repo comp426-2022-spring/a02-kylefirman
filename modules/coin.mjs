@@ -63,7 +63,7 @@ function coinFlips(flips) {
  * @returns {{ heads: number, tails: number }}
  */
 
-function countFlips(array) {
+ function countFlips(array) {
   let headcount = 0;
   let tailscount = 0;
   for (let i = 0; i < array.length; i++) {
@@ -73,8 +73,7 @@ function countFlips(array) {
       tailscount++;
     }
   }
-  let FlipResults = ["heads " + headcount, "tails " + tailscount];
-  return FlipResults;
+  return {"heads": headcount, "tails": tailscount};
 }
 
 /** Flip a coin!
@@ -88,14 +87,14 @@ function countFlips(array) {
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
 
-function flipACoin(call) {
-  let actual = coinFlip();
-  if (call.equals(actual)) {
-    let flipGame = ["call: " + call, "flip: " + actual, "result: win"];
+ function flipACoin(call) {
+  var flip = coinFlip()
+  if (call == flip) {
+    var result = "win"
   } else {
-    let flipGame = ["call: " + call, "flip: " + actual, "result: lose"];
+    var result = "lose"
   }
-  return flipGame;
+  return {"call": call, "flip": flip, "result": result};
 }
 
 
